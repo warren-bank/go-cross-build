@@ -23,8 +23,18 @@ wget --no-check-certificate -O "${GIT_DIR}.zip" "$GIT_URL"
 unzip "${GIT_DIR}.zip"
 cd "$GIT_DIR"
 
-# run script (found in PATH):
+# run script (found in PATH)
 go-cross-build.sh
 
+# reconfigure to support legacy versions of Windows
+cp "${DIR}/go-1.20.mod" ./go.mod
+export GO_VER='1.20'
+export PLATFORM='windows/386,windows/amd64'
+export OUT="${OUT}/legacy"
+
+# run script (again)
+go-cross-build.sh
+
+# cleanup
 cd "$DIR"
 rm -rf "$TMP_DIR"

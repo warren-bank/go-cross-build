@@ -14,6 +14,8 @@ cp "${DIR}/Dockerfile" ./go-cross-build.Dockerfile
 
 opts=()
 opts+=(--file ./go-cross-build.Dockerfile)
+opts+=(--no-cache)
+[ -n "$GO_VER" ]   && opts+=(--build-arg "GO_VER=${GO_VER}")
 [ -n "$APP_NAME" ] && opts+=(--build-arg "APP_NAME=${APP_NAME}")
 [ -n "$APP_PKG" ]  && opts+=(--build-arg "APP_PKG=${APP_PKG}")
 opts+=(--platform "$PLATFORM")

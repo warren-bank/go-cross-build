@@ -20,6 +20,10 @@
   - the current working directory is the root of the Golang project to cross-compile
 
 * environment variables
+  - `GO_VER`
+    * Golang compiler version
+    * default value: `1.23`
+    * note: compatibility with versions of Windows older than _Win10_ requires Golang compiler version [`1.20`](https://github.com/golang/go/issues/57003) or older
   - `OUT`
     * path to output directory
     * default value: `./dist`
