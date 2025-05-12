@@ -36,6 +36,14 @@
   - `PLATFORM`
     * comma separated list of target platforms
     * default value: `linux/386,linux/amd64,linux/arm,linux/arm64,windows/386,windows/amd64`
+  - `XTRA_DOCKER_OPTS`
+    * a _bash_ array of extra options to pass to `docker build`
+    * default value: `()`
+    * note: a string value is treated as an array with one element
+    * example:
+      ```bash
+        export XTRA_DOCKER_OPTS=(--no-cache)
+      ```
 
 * copies [_Dockerfile_](./bin/Dockerfile) to the current working directory
 * uses [_Docker_](https://www.docker.com/) with [_buildx_](https://github.com/docker/buildx) to perform cross-compile

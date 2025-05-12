@@ -12,6 +12,7 @@ GIT_DIR='go-imap-sync-master'
 export APP_NAME='go-imap-sync'
 export APP_PKG='./cmd/go-imap-sync'
 export OUT="${DIR}/release"
+export XTRA_DOCKER_OPTS=(--no-cache)
 
 TMP_DIR="${DIR}/tmp"
 
